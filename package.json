@@ -1,0 +1,24 @@
+{
+  "name": "nileshshinde.com",
+  "version": "1.0.0",
+  "description": "www.nileshshinde.com",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilesh0604/MyProfile.git"
+  },
+  "author": "Nilesh Shinde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilesh0604/MyProfile/issues"
+  },
+  "homepage": "https://github.com/nilesh0604/MyProfile#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.0.0"
+  }
+}
