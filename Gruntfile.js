@@ -64,8 +64,8 @@ module.exports = function(grunt) {
             },
             css: {
                 src: [
-                    'dev/assets/plugins/bootstrap/css/bootstrap.min.css',
-                    'dev/assets/plugins/fontawesome/css/font-awesome.min.css',
+                    /*'dev/assets/plugins/bootstrap/css/bootstrap.min.css',
+                    'dev/assets/plugins/fontawesome/css/font-awesome.min.css',*/
                     'dev/assets/plugins/jpreloader/css/jpreloader.min.css',
                     'dev/assets/plugins/animate-css/animate.min.css',
                     'dev/assets/plugins/magnificPopup/magnific-popup.min.css',
