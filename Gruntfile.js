@@ -8,11 +8,11 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     src: [
-                        'dev/assets/plugins/jpreloader/css/jpreloader.css',
-                        'dev/assets/plugins/magnificPopup/magnific-popup.css',
-                        'dev/assets/plugins/flexSlider/flexslider.css',
-                        'dev/assets/plugins/morphext/morphext.css',
-                        'dev/assets/css/berg.css'
+                        'src/assets/plugins/jpreloader/css/jpreloader.css',
+                        'src/assets/plugins/magnificPopup/magnific-popup.css',
+                        'src/assets/plugins/flexSlider/flexslider.css',
+                        'src/assets/plugins/morphext/morphext.css',
+                        'src/assets/css/berg.css'
                     ],
                     ext: '.min.css'
                 }]
@@ -27,13 +27,13 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     src: [
-                        'dev/assets/plugins/detectmobilebrowser/detectmobilebrowser.js',
-                        'dev/assets/plugins/debouncer/debouncer.js',
-                        'dev/assets/plugins/sticky/sticky.js',
-                        'dev/assets/plugins/countTo/countTo.js',
-                        'dev/assets/js/text-rotator.js',
-                        'dev/assets/js/animation.js',
-                        'dev/assets/js/main.js'
+                        'src/assets/plugins/detectmobilebrowser/detectmobilebrowser.js',
+                        'src/assets/plugins/debouncer/debouncer.js',
+                        'src/assets/plugins/sticky/sticky.js',
+                        'src/assets/plugins/countTo/countTo.js',
+                        'src/assets/js/text-rotator.js',
+                        'src/assets/js/animation.js',
+                        'src/assets/js/main.js'
                     ],
                     ext: '.min.js'
                 }]
@@ -43,35 +43,35 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: [
-                    'dev/assets/plugins/jquery.min.js',
-                    'dev/assets/plugins/bootstrap/js/bootstrap.min.js',
-                    'dev/assets/plugins/jpreloader/js/jpreloader.min.js',
-                    'dev/assets/plugins/detectmobilebrowser/detectmobilebrowser.min.js',
-                    'dev/assets/plugins/debouncer/debouncer.min.js',
-                    'dev/assets/plugins/easing/jquery.easing.min.js',
-                    'dev/assets/plugins/inview/jquery.inview.min.js',
-                    'dev/assets/plugins/matchHeight/jquery.matchHeight-min.js',
-                    'dev/assets/plugins/magnificPopup/jquery.magnific-popup.min.js',
-                    'dev/assets/plugins/flexSlider/jquery.flexslider-min.js',
-                    'dev/assets/plugins/countTo/jquery.countTo.min.js',
-                    'dev/assets/plugins/morphext/morphext.min.js',
-                    'dev/assets/js/text-rotator.min.js',
-                    'dev/assets/js/animation.min.js',
-                    'dev/assets/plugins/sticky/sticky.min.js',
-                    'dev/assets/js/main.min.js'
+                    'src/assets/plugins/jquery.min.js',
+                    'src/assets/plugins/bootstrap/js/bootstrap.min.js',
+                    'src/assets/plugins/jpreloader/js/jpreloader.min.js',
+                    'src/assets/plugins/detectmobilebrowser/detectmobilebrowser.min.js',
+                    'src/assets/plugins/debouncer/debouncer.min.js',
+                    'src/assets/plugins/easing/jquery.easing.min.js',
+                    'src/assets/plugins/inview/jquery.inview.min.js',
+                    'src/assets/plugins/matchHeight/jquery.matchHeight-min.js',
+                    'src/assets/plugins/magnificPopup/jquery.magnific-popup.min.js',
+                    'src/assets/plugins/flexSlider/jquery.flexslider-min.js',
+                    'src/assets/plugins/countTo/jquery.countTo.min.js',
+                    'src/assets/plugins/morphext/morphext.min.js',
+                    'src/assets/js/text-rotator.min.js',
+                    'src/assets/js/animation.min.js',
+                    'src/assets/plugins/sticky/sticky.min.js',
+                    'src/assets/js/main.min.js'
                 ],
                 dest: 'dist/js/compressed.min.js'
             },
             css: {
                 src: [
-                    /*'dev/assets/plugins/bootstrap/css/bootstrap.min.css',
-                    'dev/assets/plugins/fontawesome/css/font-awesome.min.css',*/
-                    'dev/assets/plugins/jpreloader/css/jpreloader.min.css',
-                    'dev/assets/plugins/animate-css/animate.min.css',
-                    'dev/assets/plugins/magnificPopup/magnific-popup.min.css',
-                    'dev/assets/plugins/flexSlider/flexslider.min.css',
-                    'dev/assets/plugins/morphext/morphext.min.css',
-                    'dev/assets/css/berg.min.css'
+                    /*'src/assets/plugins/bootstrap/css/bootstrap.min.css',
+                    'src/assets/plugins/fontawesome/css/font-awesome.min.css',*/
+                    'src/assets/plugins/jpreloader/css/jpreloader.min.css',
+                    'src/assets/plugins/animate-css/animate.min.css',
+                    'src/assets/plugins/magnificPopup/magnific-popup.min.css',
+                    'src/assets/plugins/flexSlider/flexslider.min.css',
+                    'src/assets/plugins/morphext/morphext.min.css',
+                    'src/assets/css/berg.min.css'
                 ],
                 dest: 'dist/css/compressed.min.css'
             }
@@ -84,14 +84,27 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: { // Dictionary of files
-                    'dist/index.html': 'dev/index.html' // 'destination': 'source'
+                    'dist/index.html': 'src/index.html' // 'destination': 'source'
                 }
+            }
+        },
+
+        copy: {
+            images: {
+              files: [
+                { 
+                  expand: true,
+                  cwd: 'src/assets/images/', 
+                  src: ['**/*.{png,jpg,svg}'], 
+                  dest:'dist/images/' 
+                }
+              ]
             }
         },
 
         watch: {
             options: { livereload: true },
-            files: ['dev/**'],
+            files: ['src/**'],
             tasks: []
         },
 
@@ -114,7 +127,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['cssmin', 'uglify', 'concat', 'htmlmin', 'express', 'watch']);
+
+    grunt.registerTask('default', ['cssmin', 'uglify', 'concat', 'htmlmin', 'copy', 'express', 'watch']);
+    grunt.registerTask('build', ['cssmin', 'uglify', 'concat', 'htmlmin', 'copy']);
 
 };
